@@ -1,0 +1,15 @@
+current directory: /mnt/c/Users/norim/RubymineProjects/untitled5/ccc/ccc-mock/vendor/bundle/ruby/2.6.0/gems/websocket-driver-0.7.0/ext/websocket-driver
+/home/noguchinorimasa/.rbenv/versions/2.6.2/bin/ruby -I /home/noguchinorimasa/.rbenv/versions/2.6.2/lib/ruby/2.6.0 -r ./siteconf20190515-21509-52rt6h.rb extconf.rb
+creating Makefile
+
+current directory: /mnt/c/Users/norim/RubymineProjects/untitled5/ccc/ccc-mock/vendor/bundle/ruby/2.6.0/gems/websocket-driver-0.7.0/ext/websocket-driver
+make "DESTDIR=" clean
+
+current directory: /mnt/c/Users/norim/RubymineProjects/untitled5/ccc/ccc-mock/vendor/bundle/ruby/2.6.0/gems/websocket-driver-0.7.0/ext/websocket-driver
+make "DESTDIR="
+compiling websocket_mask.c
+linking shared-object websocket_mask.so
+
+current directory: /mnt/c/Users/norim/RubymineProjects/untitled5/ccc/ccc-mock/vendor/bundle/ruby/2.6.0/gems/websocket-driver-0.7.0/ext/websocket-driver
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 websocket_mask.so ./.gem.20190515-21509-1nzxlyh
