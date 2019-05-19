@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
   has_one :visa
   has_one :prefecture
 
@@ -11,12 +15,12 @@ class User < ApplicationRecord
   validates :email_confirmation, presence: true
   validates :tel, numericality: true
   validates :wechat_id, length: { in: 1..30 }
-  validates_associated :visa
-  validates_associated :prefecture
+  validates :visa_id, presence: true
+  # validates :prefecture_id, uniqueness: true, presence: true
 
-  enum sex: { female: 0, male: 1 }
-  enum edu_lebel: { bachelor: 0, doctor: 1, master: 2, high_school: 3,junior_high:4,other:5 }
-  enum jlpt: { none: 0, N1: 1, N2: 2, N3: 3, N4: 4, N5: 5 }
+  enum sex: {女: 0, 男: 1}
+  enum edu_level: { bachelor: 0, doctor: 1, master: 2, high_school: 3,junior_high:4,other:5 }
+  enum jlpt: { no_certif: 0, N1: 1, N2: 2, N3: 3, N4: 4, N5: 5 }
   enum management: { yes: true, no: false }
   enum chinese_skill: { native: 0, beginner: 1, intermediate: 2, advanced: 3, fluent: 4 }
 end
