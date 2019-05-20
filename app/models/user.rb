@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :confirmable, :trackable
   has_one :visa
   has_one :prefecture
 
@@ -11,8 +11,9 @@ class User < ApplicationRecord
   validates :sex, presence: true
   validates :management, presence: true
   validates :chinese_skill, presence: true
-  validates :email, presence: true, uniqueness: true, confirmation: true
-  validates :email_confirmation, presence: true
+  validates :email, presence: true, uniqueness: true
+  # validates :email, presence: true, uniqueness: true, confirmation: true
+  # validates :email_confirmation, presence: true
   validates :tel, numericality: true
   validates :wechat_id, length: { in: 1..30 }
   validates :visa_id, presence: true
