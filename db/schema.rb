@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_18_063707) do
+ActiveRecord::Schema.define(version: 2019_05_19_103938) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2019_05_18_063707) do
     t.date "birthday", null: false
     t.integer "sex", default: 0, null: false
     t.string "email", limit: 255, null: false
-    t.integer "tel"
+    t.string "tel"
     t.string "wechat_id", limit: 30
     t.integer "edu_level", default: 0
     t.integer "jlpt", default: 0
@@ -34,6 +34,26 @@ ActiveRecord::Schema.define(version: 2019_05_18_063707) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "chinese_skill", default: 0, null: false
+    t.bigint "visa_id"
+    t.bigint "prefecture_id"
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["prefecture_id"], name: "index_users_on_prefecture_id"
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["visa_id"], name: "index_users_on_visa_id"
   end
 
   create_table "visas", force: :cascade do |t|
@@ -42,4 +62,6 @@ ActiveRecord::Schema.define(version: 2019_05_18_063707) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "users", "prefectures"
+  add_foreign_key "users", "visas"
 end

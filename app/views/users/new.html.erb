@@ -1,0 +1,58 @@
+<h1>home</h1>
+
+<%= form_with(model: @user, local: true, method: :post) do |form| %>
+  <%= render 'errormsg' %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label :birthday %>
+    <%= form.date_field :birthday %>
+  </div>
+  <div>
+    <%= form.label :sex %>
+    <%= form.collection_radio_buttons :sex, User.sexes,:first, :first %>
+  </div>
+  <div>
+    <%= form.label :email %>
+    <%= form.email_field :email %>
+  </div>
+  <div>
+    <%= form.label :email_confirmation %>
+    <%= form.email_field :email_confirmation  %>
+  </div>
+  <div>
+    <%= form.label :prefecture_id %>
+    <%= form.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: ""} %>
+  </div>
+  <div>
+    <%= form.label :tel %>
+    <%= form.telephone_field :tel  %>
+  </div>
+  <div>
+    <%= form.label :wechat_id %>
+    <%= form.telephone_field :wechat_id  %>
+  </div>
+  <div>
+    <%= form.label :edu_level %>
+    <%= form.collection_radio_buttons :edu_level, User.edu_levels, :first, :first %>
+  </div>
+  <div>
+    <%= form.label :jlpt %>
+    <%= form.collection_radio_buttons :jlpt, User.jlpts, :first, :first  %>
+  </div>
+  <div>
+    <%= form.label :chinese_skill %>
+    <%= form.collection_radio_buttons :chinese_skill, User.chinese_skills, :first, :first  %>
+  </div>
+  <div>
+    <%= form.label :management %>
+    <%= form.collection_radio_buttons :management, User.managements, :first, :first%>
+  </div>
+  <div>
+    <%= form.label :visa %>
+    <%= form.collection_radio_buttons :visa_id, Visa.all, :id, :name %>
+  </div>
+  <%= form.submit %>
+<% end %>
