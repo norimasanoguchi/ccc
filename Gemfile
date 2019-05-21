@@ -15,7 +15,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 gem 'mini_magick', '~> 4.8'
 
@@ -25,6 +25,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'enum_help'
 gem 'pry-byebug'
 gem 'devise'
+gem 'config'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
