@@ -10,12 +10,9 @@ class User < ApplicationRecord
   validates :management, presence: true
   validates :chinese_skill, presence: true
   validates :email, presence: true, uniqueness: true
-  # validates :email, presence: true, uniqueness: true, confirmation: true
-  # validates :email_confirmation, presence: true
   validates :tel, numericality: true
   validates :wechat_id, length: { in: 1..30 }
   validates :visa_id, presence: true
-  # validates :prefecture_id, uniqueness: true, presence: true
 
   enum sex: {女: 0, 男: 1}
   enum edu_level: { bachelor: 0, doctor: 1, master: 2, high_school: 3,junior_high:4,other:5 }
