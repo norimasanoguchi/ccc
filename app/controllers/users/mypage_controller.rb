@@ -4,4 +4,8 @@ class Users::MypageController < ApplicationController
  def index
    @current_user = current_user
  end
+
+  def show
+    @current_user = current_user
+  end
 end

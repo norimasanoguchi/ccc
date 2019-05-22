@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     get "user_mypage", to: "users/mypage#index"
+    get "show_user_mypage", to: "users/mypage#show"
   end
 
   devise_for :users, controllers: {

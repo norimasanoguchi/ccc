@@ -4,20 +4,72 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :birthday %><br />
+    <%= f.date_field :birthday, autofocus: true, autocomplete: "birthday" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sex %><br />
+    <%= f.collection_radio_buttons :sex, User.sexes,:first, :first, autofocus: true, autocomplete: "birthday" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :visa %><br />
+    <%= f.collection_select :visa_id, Visa.all, :id, :name, {prompt: ""}, autofocus: true, autocomplete: "visa" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :prefecture_id %><br />
+    <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: ""}, autofocus: true, autocomplete: "prefecture" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tel %><br />
+    <%= f.telephone_field :tel , autofocus: true, autocomplete: "tel" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :wechat_id %>
+    <%= f.telephone_field :wechat_id  , autofocus: true, autocomplete: "tel" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :edu_level %><br />
+    <%= f.collection_radio_buttons :edu_level, User.edu_levels, :first, :first, autofocus: true, autocomplete: "tel" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :jlpt %><br />
+    <%= f.collection_radio_buttons :jlpt, User.jlpts, :first, :first, autofocus: true, autocomplete: "tel" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :chinese_skill %><br />
+    <%= f.collection_radio_buttons :chinese_skill, User.chinese_skills, :first, :first, autofocus: true, autocomplete: "tel" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <div>現在、右記メールアドレスの承認待ちです。: <%= resource.unconfirmed_email %></div>
   <% end %>
 
+  <!--    <%#= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />-->
+  <%= f.label :current_password %> <i>(変更のため、こちらに現在のパスワードを入力してください。)</i><br />
+  <%= f.password_field :current_password, autocomplete: "current-password" %>
+  </div>
+
+  <p>＜パスワードの変更＞</p>
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+<!--    <%#= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />-->
+    <%= f.label :password %> <i>(パスワードを変更しない場合、こちらの欄は空欄のままにして下さい)</i><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
     <% if @minimum_password_length %>
       <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+      <em>最低<%= @minimum_password_length %>文字の入力が必要です </em>
     <% end %>
   </div>
 
@@ -27,17 +79,15 @@
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
+
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "編集する" %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<h3>アカウントの削除</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p>アカウントを削除しますか？ <%= button_to "アカウントの削除", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
