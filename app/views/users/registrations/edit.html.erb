@@ -58,14 +58,14 @@
   <% end %>
 
   <!--    <%#= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />-->
-  <%= f.label :current_password %> <i>(変更のため、こちらに現在のパスワードを入力してください。)</i><br />
+  <%= f.label :current_password %> <i>(登録内容を変更するためには、こちらに現在のパスワードを入力してください。)</i><br />
   <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
   <p>＜パスワードの変更＞</p>
   <div class="field">
 <!--    <%#= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />-->
-    <%= f.label :password %> <i>(パスワードを変更しない場合、こちらの欄は空欄のままにして下さい)</i><br />
+    <%= f.label :password %> <i>(パスワードを変更する場合は、下記欄に新しいパスワードを入力して下さい)</i><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
     <% if @minimum_password_length %>
       <br />

@@ -1,11 +1,11 @@
-class Users::MypageController < ApplicationController
-  before_action :authenticate_user!
+class Companies::MypageController < ApplicationController
+  before_action :authenticate_company!
 
  def index
-   @current_user = current_user
+   @current_company = current_company
  end
 
   def show
-    @current_user = current_user
+    @current_company = current_company
   end
 end
