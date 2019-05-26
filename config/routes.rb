@@ -9,9 +9,8 @@ Rails.application.routes.draw do
     admin: 'users/admin'
   }
 
-  devise_scope :user do
-    get "users/admin", to: "users/admin#index"
-    get "users/admin/:id", to: "users/admin#show"
+  namespace :users do
+    resources :admin, only:[:index, :show]
   end
 
   devise_for :companies, controllers: {
@@ -20,9 +19,9 @@ Rails.application.routes.draw do
     admin: 'companies/admin'
   }
 
-  devise_scope :company do
-    get "company/top", to: "companies/top#index"
-    get "company/admin", to: "companies/admin#index"
-    get "company/admin/:id", to: "companies/admin#show"
+  namespace :companies do
+    resources :admin, only:[:index, :show]
+    resources :top, only:[:index]
   end
+
 end
