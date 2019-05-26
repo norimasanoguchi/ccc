@@ -1,0 +1,29 @@
+<h1><%= @current_company.company_name %>　<%= @current_company.contact_person %>さまの会員管理画面</h1>
+
+<table>
+  <tr>
+  　<th>名前</th>
+    <th>性別</th>
+    <th>ビザ</th>
+    <th>所在地</th>
+    <th>学歴</th>
+    <th>中国語スキル</th>
+    <th>操作</th>
+  </tr>
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.name %></td>
+    <td><%= user.sex %></td>
+    <td><%= Visa.find_by(id:user.visa_id).name %></td>
+    <td><%= Prefecture.find_by(id:user.prefecture_id).name %></td>
+    <td><%= user.edu_level %></td>
+    <td><%= user.chinese_skill%></td>
+    <td><%= link_to "詳細", users_admin_path(id:user) %><td>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<div>
+<%= link_to("登録情報の確認・編集", company_admin_path(current_company.id)) %>
+</div>

@@ -1,4 +1,4 @@
-class Companies::MypageController < ApplicationController
+class Companies::AdminController < ApplicationController
   before_action :authenticate_company!
 
  def index
@@ -10,4 +10,7 @@ class Companies::MypageController < ApplicationController
     @current_company = current_company
   end
 
+  def user_info
+    @user = User.find_by(id:params[:id])
+  end
 end

@@ -1,28 +1,28 @@
 Rails.application.routes.draw do
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
-  root to: "users/users#index"
+  root to: "users/top#index"
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations',
-    users: 'users/users',
-    mypage: 'users/mypage'
+    top: 'users/top',
+    admin: 'users/admin'
   }
 
   devise_scope :user do
-    get "user_mypage", to: "users/mypage#index"
-    get "show_user_mypage", to: "users/mypage#show"
+    get "users/admin", to: "users/admin#index"
+    get "users/admin/:id", to: "users/admin#show"
   end
 
   devise_for :companies, controllers: {
     registrations: 'companies/registrations',
-    entrances: 'companies/entrances',
-    mypage: 'companies/mypage'
+    top: 'companies/top',
+    admin: 'companies/admin'
   }
 
   devise_scope :company do
-    get "company_entrance", to: "companies/entrances#index"
-    get "company_mypage", to: "companies/mypage#index"
-    get "show_company_mypage", to: "companies/mypage#show"
+    get "company/top", to: "companies/top#index"
+    get "company/admin", to: "companies/admin#index"
+    get "company/admin/:id", to: "companies/admin#show"
   end
 end
