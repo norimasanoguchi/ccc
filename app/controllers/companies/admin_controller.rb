@@ -3,7 +3,15 @@ class Companies::AdminController < ApplicationController
 
  def index
    @current_company = current_company
-   @users = User.all
+   # @users = User.all
+   @sexes = User.sexes
+   @visas = Visa.all
+   @edu_levels = User.edu_levels
+   @jlpts = User.jlpts
+   @Prefectures = Prefecture.all
+   @chinese_skills = User.chinese_skills
+   @q = User.ransack(params[:q])
+   @users = @q.result
  end
 
   def show
