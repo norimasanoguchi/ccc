@@ -24,4 +24,12 @@ Ransack.configure do |config|
                          formatter: -> (v) { (v + 1).years.ago.to_date },
                          type: :integer,
                          compounds: false
+
+    config.hide_sort_order_indicators = false
+
+    # config.custom_arrows = {
+    #     up_arrow: '<i class="custom-up-arrow-icon"></i>',
+    #     down_arrow: 'U+02193',
+    #     default_arrow: '<i class="default-arrow-icon"></i>'
+    #   }
   end
