@@ -1,0 +1,55 @@
+<%= search_form_for(@q, url:companies_admin_index_path) do |f| %>
+
+  <div class="field">
+    <%= f.label :name_cont,"名前" %>
+    <%= f.search_field :name_cont %>
+
+    <%= f.label :email_cont ,"Email"%>
+    <%= f.search_field :email_cont, autofocus: true, autocomplete: "email" %>
+
+    <%= f.label :tel_cont,"電話番号" %>
+    <%= f.search_field :tel_cont %>
+
+    <%= f.label :wechat_id_cont,"Wechat ID" %>
+    <%= f.search_field :wechat_id_cont  %>
+  </div>
+
+  <div class="field">年齢を指定
+    <%= f.number_field :birthday_to_age_gteq %>
+    <%= f.label :birthday_to_age_gteq,"歳以上" %>～
+    <%= f.number_field :birthday_to_age_lteq %>
+    <%= f.label :birthday_to_age_lteq,"歳以下" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sex_eq ,"性別"%>
+    <%= f.collection_radio_buttons :sex_eq, @sexes,:second, :first %>
+    <%= f.label :sex_eq,"設定なし" %>
+    <%= f.radio_button(:sex_eq , "") %>
+  </div>
+
+  <div class="field">
+    <%= f.label :prefecture_id_eq ,"居住地"%>
+    <%= f.collection_select :prefecture_id_eq , @Prefectures, :id, :name, include_blank: true %>
+
+    <%= f.label :visa_id_eq ,"ビザ"%>
+    <%= f.collection_select :visa_id_eq , @visas, :id, :name, include_blank: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :edu_level_in,"学歴" %>
+    <%= f.collection_check_boxes :edu_level_in,  @edu_levels, :second, :first %>
+  </div>
+
+  <div class="field">
+    <%= f.label :jlpt_in ,"JLPT"%>
+    <%= f.collection_check_boxes :jlpt_in, @jlpts , :second, :first  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :chinese_skill_in ,"中国語レベル"%>
+    <%= f.collection_check_boxes :chinese_skill_in, @chinese_skills , :second, :first  %>
+  </div>
+
+  <%= f.submit %>
+<% end %>

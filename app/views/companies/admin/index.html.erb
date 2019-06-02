@@ -1,0 +1,32 @@
+<h1><%= @current_company.company_name %>　<%= @current_company.contact_person %>さまの会員管理画面</h1>
+<%= render 'search' %>
+
+<table>
+  <tr>
+  　<th><%= sort_link(@q, :name, default_order: :desc) %></th>
+    <th><%= sort_link(@q, :sex,"性別") %></th>
+    <th><%= sort_link(@q, :visa,"ビザ") %></th>
+    <th><%= sort_link(@q, :Prefecture,"居住地") %></th>
+    <th><%= sort_link(@q, :edu_level,"学歴") %></th>
+    <th><%= sort_link(@q, :chinese_skill,"中国語スキル") %></th>
+    <th><%= sort_link(@q, :jlpt,"JLPT資格") %></th>
+    <th>操作</th>
+  </tr>
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.name %></td>
+    <td><%= user.sex %></td>
+    <td><%= Visa.find_by(id:user.visa_id).name %></td>
+    <td><%= Prefecture.find_by(id:user.prefecture_id).name %></td>
+    <td><%= user.edu_level %></td>
+    <td><%= user.chinese_skill%></td>
+    <td><%= user.jlpt %></td>
+    <td><%= link_to "詳細", users_admin_path(id:user) %><td>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<div>
+<%= link_to("登録情報の確認・編集", companies_admin_path(current_company.id)) %>
+</div>
