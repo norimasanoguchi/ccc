@@ -1,6 +1,19 @@
 <h1><%= @current_user.name %>さんの会員管理画面</h1>
 
-<%#= link_to("登録情報の確認・編集", users_admin_path(id:current_user.id)) %>
+<h2>メッセージ一覧</h2>
+<table>
+  <tr>
+    　<th>最終更新日</th>
+    　<th>送信元企業名</th>
+    　<th>詳細</th>
+  </tr>
+  <% @conversations.each do |conversations| %>
+    <tr>
+      <td><%= conversations.updated_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+      <td><%= conversations.company.company_name %></td>
+      <td><%= link_to("メッセージ詳細",conversation_messages_path(conversations)) %></td>
+    </tr>
+  <% end %>
+</table>
+
 <%= link_to("登録情報の確認・編集", users_admin_path(@current_user)) %>
-<%#= link_to("ログインする", new_user_session_path) %>
-<%#= link_to("採用企業の方はこちら", new_user_path) %>

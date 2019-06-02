@@ -1,0 +1,49 @@
+<% if @over_ten %>
+  <%= link_to '以前のメッセージ', '?m=all' %>
+<% end %>
+
+<div class="ui segment">
+  <% @messages.each do |message| %>
+    <% if message.body.present? %>
+      <div class="item">
+        <div class="content">
+          <% if message.company_id.present? %>
+            <d iv class="header"><strong><%= message.company.company_name %></strong> <%= message.message_time %></div>
+          <% elsif message.user_id.present? %>
+            <d iv class="header"><strong><%= message.user.name %></strong> <%= message.message_time %></div>
+          <% end %>
+            <div class="list">
+            <div class="item">
+              <i class="right triangle icon"></i>
+              <%= message.body %> /
+              <% if message.user == current_user || message.company == current_company%>
+                <%= message.read ? '既読' : '未読' %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<%= form_with(model: [@conversation, @message]) do |f| %>
+  <div class="field">
+    <%= f.text_area :body, class: "form-control" %>
+  </div>
+    <% if company_signed_in? %>
+      <%= f.text_field :company_id, value: @company_id , type: "hidden"  %>
+    <% elsif user_signed_in? %>
+      <%= f.text_field :user_id, value: @user_id, type: "hidden"  %>
+    <% end %>
+
+  <div>
+    <%= f.submit "メッセージを送る" %>
+  </div>
+<% end %>
+
+  <% if company_signed_in? %>
+    <%= link_to("企業管理画面トップ",companies_admin_index_path) %>
+  <% elsif user_signed_in? %>
+    <%= link_to("ユーザー管理画面トップ",users_admin_index_path) %>
+  <% end %>

@@ -21,7 +21,8 @@
     <td><%= user.edu_level %></td>
     <td><%= user.chinese_skill%></td>
     <td><%= user.jlpt %></td>
-    <td><%= link_to "詳細", users_admin_path(id:user) %><td>
+    <td><%= link_to "詳細", users_admin_path(id:user) %></td>
+    <td><%= link_to 'メッセージ', conversations_path(company_id: current_company.id, user_id: user.id), method: :post %>
     </td>
   </tr>
 <% end %>

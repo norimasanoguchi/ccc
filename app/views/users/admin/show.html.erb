@@ -11,4 +11,5 @@
 <p>日本語能力：<%= @user.jlpt%></p>
 <p>中国語スキル：<%= @user.chinese_skill%></p>
 
-<%= link_to("登録情報を編集する", edit_user_registration_path) %>
+<%= link_to("登録情報を編集する", edit_user_registration_path) if user_signed_in? %>
+<%= link_to 'メッセージを送る', conversations_path(company_id: current_company.id, user_id: @user.id), method: :post if company_signed_in? %>
