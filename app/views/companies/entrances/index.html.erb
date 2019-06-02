@@ -1,0 +1,7 @@
+<h1>ようこそ中国語求人センターへ！</h1>
+
+<%= link_to("マイページを見る", company_mypage_path) if company_signed_in? %>
+<%= link_to("今すぐアカウント登録", new_company_registration_path) unless company_signed_in? %>
+<%= link_to("ログインする", new_company_session_path) unless company_signed_in? %>
+<%= link_to('ログアウトする', destroy_company_session_path, method: :delete) if company_signed_in? %>
+<%= link_to("人材の方はこちら", root_path) %>
