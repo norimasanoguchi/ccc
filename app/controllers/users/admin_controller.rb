@@ -4,6 +4,7 @@ class Users::AdminController < ApplicationController
  def index
    authenticate_user!
    @current_user = current_user
+   @conversations = @current_user.conversations
  end
 
   def show

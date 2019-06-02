@@ -23,4 +23,8 @@ Rails.application.routes.draw do
     resources :top, only:[:index]
   end
 
+  resources :conversations do
+    resources :messages
+  end
+
 end
