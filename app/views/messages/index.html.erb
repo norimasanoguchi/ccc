@@ -12,12 +12,14 @@
           <% elsif message.user_id.present? %>
             <d iv class="header"><strong><%= message.user.name %></strong> <%= message.message_time %></div>
           <% end %>
-            <div class="list">
+          <div class="list">
             <div class="item">
+              <%= image_tag @user.image_url(:thumb) if message.user_id.present? && @user.image.present? %>
               <i class="right triangle icon"></i>
               <%= message.body %> /
               <% if message.user == current_user || message.company == current_company%>
-                <%= message.read ? '既読' : '未読' %>
+                <%#= message.read.false ? '既読' : '未読' %>
+                <%= '未読' if message.read == false %>
               <% end %>
             </div>
           </div>
