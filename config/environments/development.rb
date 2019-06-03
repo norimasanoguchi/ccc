@@ -63,12 +63,11 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     enable_starttls_auto: true,
-    enable_starttls_auto: Settings.gmail[:enable_starttls_auto],
-    address: Settings.gmail[:address],
-    port: Settings.gmail[:port],
-    domain: Settings.gmail[:domain],
-    user_name: Settings.gmail[:user_name], #gmailアドレス
-    password: Settings.gmail[:password],#gmailパスワード
-    authentication: Settings.gmail[:authentication],
+    address: Settings[:gmail][:address],
+    port: Settings[:gmail][:port],
+    domain: Settings[:gmail][:domain],
+    user_name: Settings[:gmail][:user_name], #gmailアドレス
+    password: Settings[:gmail][:password],#gmailパスワード
+    authentication: Settings[:gmail][:authentication],
   }
 end

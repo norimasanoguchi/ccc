@@ -45,7 +45,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.permit(:sign_up, keys:
       [:name, :birthday, :sex, :email, :email_confirmation,
        :tel, :wechat_id, :edu_level, :jlpt, :management,
-       :chinese_skill, :visa_id, :prefecture_id])
+       :chinese_skill, :visa_id, :prefecture_id, :image, :image_cache])
   end
 
   # If you have extra params to permit, append them to the sanitizer.
@@ -53,7 +53,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.permit(:account_update, keys:
       [:name, :birthday, :sex, :email, :email_confirmation,
        :tel, :wechat_id, :edu_level, :jlpt, :management, :chinese_skill,
-       :visa_id, :prefecture_id])
+       :visa_id, :prefecture_id, :image, :image_cache])
   end
 
   # The path used after sign up.
