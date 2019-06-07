@@ -1,7 +1,346 @@
-<h1>ようこそ中国語求人センターへ！</h1>
+<header id="home">
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <!-- Background Image -->
+    <div class="bg-img" style="background-image: url(<%= asset_path 'img/background3.jpg' %>);">
+      <div class="overlay"></div>
+    </div>
+  <!-- /Background Image -->
 
-<%= link_to("マイページを見る", users_admin_index_path) if user_signed_in? %>
-<%= link_to("今すぐアカウント登録", new_user_registration_path) unless user_signed_in? %>
-<%= link_to("ログインする", new_user_session_path) unless user_signed_in? %>
-<%= link_to('ログアウトする', destroy_user_session_path, method: :delete) if user_signed_in? %>
-<%= link_to("採用企業の方はこちら",  companies_top_index_path) %>
+  <!-- Nav -->
+  <nav id="nav" class="navbar sticky-top nav-transparent">
+    <div class="container">
+
+      <div class="navbar-header">
+        <!-- Logo -->
+        <div class="navbar-brand">
+          <a href="index.html">
+            <%= image_tag("img/logo.png", class: "logo", alt: "logo") %>
+            <%= image_tag("img/logo-alt.png", class: "logo-alt", alt: "logo") %>
+          </a>
+        </div>
+        <!-- /Logo -->
+
+        <!-- Collapse nav button -->
+        <div class="nav-collapse">
+          <span></span>
+        </div>
+        <!-- /Collapse nav button -->
+      </div>
+
+      <!--  Main navigation  -->
+      <ul class="main-nav nav navbar-nav navbar-right">
+        <li><%= link_to("マイページ", users_admin_index_path) if user_signed_in? %></li>
+        <li><%= link_to("会員登録", new_user_registration_path) unless user_signed_in? %></li>
+        <li><%= link_to("ログイン", new_user_session_path) unless user_signed_in? %></li>
+        <li><%= link_to('ログアウト', destroy_user_session_path, method: :delete) if user_signed_in? %></li>
+        <li><%= link_to("採用企業の方はこちら",  companies_top_index_path) %></li>
+      </ul>
+      <!-- /Main navigation -->
+
+    </div>
+  </nav>
+  <!-- /Nav -->
+
+  <!-- home wrapper -->
+  <div class="home-wrapper">
+    <div class="container">
+      <div class="row">
+
+        <!-- home content -->
+        <div class="col-md-10 col-md-offset-1">
+          <div class="home-content">
+            <h1 class="white-text">Chinese Career Center</h1>
+            <p class="white-text">中国語人材スカウトサービス。登録するだけでスカウトメッセージが届く</p>
+            <% unless user_signed_in? %><button class="white-btn white-text"><%= link_to("今すぐ登録", new_user_registration_path) %></button><% end %>
+            <% if user_signed_in? %><button class="white-btn"><%= link_to("マイページ", users_admin_index_path)  %></button><% end %>
+          </div>
+        </div>
+        <!-- /home content -->
+
+      </div>
+    </div>
+  </div>
+  <!-- /home wrapper -->
+
+</header>
+<!-- /Header -->
+
+<!-- About -->
+<div id="about" class="section md-padding">
+
+  <!-- Container -->
+  <div class="container">
+
+    <!-- Row -->
+    <div class="row">
+
+      <!-- Section header -->
+      <div class="section-header text-center">
+        <h2 class="title">サービスの3つの特徴</h2>
+      </div>
+      <!-- /Section header -->
+
+      <!-- about -->
+      <div class="col-md-4">
+        <div class="about">
+          <%= icon('fas', 'flag') %>
+          <h3>カンタン登録</h3>
+          <p>シンプルな項目を入力するだけの簡単登録</p>
+          <% unless user_signed_in? %><%= link_to("今すぐ登録", new_user_registration_path) %><% end %>
+        </div>
+      </div>
+      <!-- /about -->
+
+      <!-- about -->
+      <div class="col-md-4">
+        <div class="about">
+          <%= icon('fas', 'flag') %>
+          <h3>スカウトサービス</h3>
+          <p>あなたを採用したい企業からメッセージが届く！</p>
+          <% unless user_signed_in? %><%= link_to("今すぐ登録", new_user_registration_path) %><% end %>
+        </div>
+      </div>
+      <!-- /about -->
+
+      <!-- about -->
+      <div class="col-md-4">
+        <div class="about">
+          <%= icon('fas', 'flag') %>
+          <h3>完全無料</h3>
+          <p>利用には一切費用がかかりません</p>
+          <% unless user_signed_in? %><%= link_to("今すぐ登録", new_user_registration_path) %><% end %>
+
+        </div>
+      </div>
+      <!-- /about -->
+
+    </div>
+    <!-- /Row -->
+
+  </div>
+  <!-- /Container -->
+
+</div>
+<!-- /About -->
+
+
+
+<!-- Why Choose Us -->
+<div id="features" class="section md-padding bg-grey">
+
+  <!-- Container -->
+  <div class="container">
+
+    <!-- Row -->
+    <div class="row">
+
+      <!-- why choose us content -->
+      <div class="col-md-6">
+        <div class="section-header">
+          <h2 class="title">私たちが選ばれる理由</h2>
+        </div>
+        <p>専門エージェントがあなたのスキルを活かせるお仕事探しをサポート！</p>
+        <div class="feature">
+          <i class="fa fa-check"></i>
+          <p>中国語のお仕事に特化</p>
+        </div>
+        <div class="feature">
+          <i class="fa fa-check"></i>
+          <p>一切費用はかかりません</p>
+        </div>
+        <div class="feature">
+          <i class="fa fa-check"></i>
+          <p>非公開案件含む多数の求人をご案内</p>
+        </div>
+        <div class="feature">
+          <i class="fa fa-check"></i>
+          <p>無料の就職活動ノウハウセミナーへご招待</p>
+        </div>
+      </div>
+      <!-- /why choose us content -->
+
+      <!-- About slider -->
+      <div class="col-md-6">
+          <img class="img-responsive" src=<%= asset_path("img/about1.jpg") %> alt="">
+      </div>
+      <!-- /About slider -->
+
+    </div>
+    <!-- /Row -->
+
+  </div>
+  <!-- /Container -->
+
+</div>
+<!--/Why Choose Us-->
+
+<!-- Team -->
+<div id="team" class="section md-padding">
+
+  <!-- Container -->
+  <div class="container">
+
+    <!-- Row -->
+    <div class="row">
+
+      <!-- Section header -->
+      <div class="section-header text-center">
+        <h2 class="title">メンバー</h2>
+      </div>
+      <!-- /Section header -->
+
+      <!-- team -->
+      <div class="col-sm-4">
+        <div class="team">
+          <div class="team-img">
+<!--            <img class="img-responsive" src="./img/team1.jpg" alt="">-->
+            <img class="img-responsive" src=<%= asset_path("img/team1.jpg") %> alt="">
+            <div class="overlay">
+              <div class="team-social">
+<!--                <a href="#"><i class="fa fa-twitter"></i></a>-->
+              </div>
+            </div>
+          </div>
+          <div class="team-content">
+            <h3>山田一郎</h3>
+            <span>キャリアアドバイザー</span>
+          </div>
+        </div>
+      </div>
+      <!-- /team -->
+
+      <!-- team -->
+      <div class="col-sm-4">
+        <div class="team">
+          <div class="team-img">
+            <img class="img-responsive" src=<%= asset_path("img/team2.jpg") %> alt="">
+            <div class="overlay">
+              <div class="team-social">
+<!--                <a href="#"><i class="fa fa-facebook"></i></a>-->
+<!--                <a href="#"><i class="fa fa-google-plus"></i></a>-->
+<!--                <a href="#"><i class="fa fa-twitter"></i></a>-->
+              </div>
+            </div>
+          </div>
+          <div class="team-content">
+            <h3>鈴木太郎</h3>
+            <span>コーディネーター</span>
+          </div>
+        </div>
+      </div>
+      <!-- /team -->
+
+      <!-- team -->
+      <div class="col-sm-4">
+        <div class="team">
+          <div class="team-img">
+            <img class="img-responsive" src=<%= asset_path("img/team3.jpg") %> alt="">
+            <div class="overlay">
+              <div class="team-social">
+<!--                <a href="#"><i class="fa fa-facebook"></i></a>-->
+<!--                <a href="#"><i class="fa fa-google-plus"></i></a>-->
+<!--                <a href="#"><i class="fa fa-twitter"></i></a>-->
+              </div>
+            </div>
+          </div>
+          <div class="team-content">
+            <h3>佐藤次郎</h3>
+            <span>アシスタント</span>
+          </div>
+        </div>
+      </div>
+      <!-- /team -->
+
+    </div>
+    <!-- /Row -->
+
+  </div>
+  <!-- /Container -->
+
+</div>
+<!-- /Team -->
+
+
+<!-- Contact-->
+<div id="contact" class="section md-padding">
+
+  <!-- Container -->
+  <div class="container">
+
+    <!-- Row -->
+    <div class="row">
+
+      <!-- Section-header -->
+      <div class="section-header text-center">
+        <h2 class="title">登録はこちら</h2>
+      </div>
+      <!-- /Section-header -->
+
+
+      <!-- contact form -->
+      <div class="col-md-8 col-md-offset-5">
+          <% unless user_signed_in? %><button class="white-btn"><%= link_to("今すぐ登録", new_user_registration_path) %></button><% end %>
+          <% if user_signed_in? %><button class="white-btn"><%= link_to("マイページ", users_admin_index_path)  %></button><% end %>
+      </div>
+      <!-- /contact form -->
+
+    </div>
+    <!-- /Row -->
+
+  </div>
+  <!-- /Container -->
+
+</div>
+<!-- /Contact -->
+
+
+<!-- Footer -->
+<footer id="footer" class="sm-padding bg-dark">
+
+  <!-- Container -->
+  <div class="container">
+
+    <!-- Row -->
+    <div class="row">
+
+      <div class="col-md-12">
+
+
+        <!-- footer follow -->
+        <ul class="footer-follow">
+          <li><a href="#"><i class="fas fa-user-plus"></i></a></li>
+          <li><a href="#"><i class="fas fa-sign-in-alt"></i></a></li>
+          <li><a href="#"><i class="fas fa-building"></i></a></li>
+        </ul>
+        <!-- /footer follow -->
+
+        <!-- footer copyright -->
+        <div class="footer-copyright">
+          <p>Copyright © 2017. All Rights Reserved. Designed by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+        </div>
+        <!-- /footer copyright -->
+
+      </div>
+
+    </div>
+    <!-- /Row -->
+
+  </div>
+  <!-- /Container -->
+
+</footer>
+<!-- /Footer-->
+
+
+<!-- jQuery Plugins -->
+<%#= javascript_include_tag 'jquery.min.js' %>
+<%#= javascript_include_tag 'bootstrap.min.js' %>
+<%#= javascript_include_tag 'owl.carousel.min.js' %>
+<%#= javascript_include_tag 'jquery.magnific-popup.js' %>
+<%#= javascript_include_tag 'jmain.js' %>
+<!--<script type="text/javascript" src="js/jquery.min.js"></script>-->
+<!--<script type="text/javascript" src="js/bootstrap.min.js"></script>-->
+<!--<script type="text/javascript" src="js/owl.carousel.min.js"></script>-->
+<!--<script type="text/javascript" src="js/jquery.magnific-popup.js"></script>-->
+<!--<script type="text/javascript" src="js/main.js"></script>-->
