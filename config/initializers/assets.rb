@@ -13,8 +13,7 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 
-Rails.application.config.assets.precompile += %w( jquery.min.js )
-Rails.application.config.assets.precompile += %w( bootstrap.min.js )
-Rails.application.config.assets.precompile += %w( owl.carousel.min.js )
-Rails.application.config.assets.precompile += %w( jquery.magnific-popup.js )
-Rails.application.config.assets.precompile += %w( jmain.js )
+Rails.application.config.assets.precompile += %w( thme_Creative/creative.scss )
+Rails.application.config.assets.precompile += %w( thme_Creative/css/creative.min.css )
+Rails.application.config.assets.precompile += %w( thme_Creative/creative.min.js )
+Rails.application.config.assets.precompile += %w( users/registrations.css )

@@ -1,5 +1,5 @@
 class Users::TopController < ApplicationController
-  layout 'user_top.html.erb'
+  layout 'user_top'
 
   def index
   end
