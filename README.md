@@ -21,10 +21,10 @@ Ruby 2.6.2 Rails 5.2.3
  企業アカウントログイン機能
  
 ## カタログ設計
-https://docs.google.com/spreadsheets/d/1CdfZvX6hsqFdZyV6G-j93zRkrFCgWp9wkYQlEYJVZD4/edit?usp=sharing
+https://docs.google.com/spreadsheets/d/1XzFzlgZfDQnxiJ0LFOZ8xfoXyE7ziZLXCQ2pTzd78gA/edit?usp=sharing
 
 ## テーブル定義
-https://docs.google.com/spreadsheets/d/1CdfZvX6hsqFdZyV6G-j93zRkrFCgWp9wkYQlEYJVZD4/edit?usp=sharing
+https://docs.google.com/spreadsheets/d/1XzFzlgZfDQnxiJ0LFOZ8xfoXyE7ziZLXCQ2pTzd78gA/edit?usp=sharing
 
 https://cacoo.com/diagrams/khWUrkfEBk5KciIq/EDF27
 
