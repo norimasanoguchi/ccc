@@ -1,9 +1,9 @@
 <!-- This snippet uses Font Awesome 5 Free as a dependency. You can download it at fontawesome.io! -->
 <body>
 <div class="container">
+  <%= render "devise/shared/error_messages", resource: resource %>
   <div class="form-signin">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
       <h5 class="card-title text-center">登録内容編集</h5>
       <div class="form-group">
         <%= f.text_field :name,id:"inputUserame",class: "form-control", placeholder: "名前" %>
