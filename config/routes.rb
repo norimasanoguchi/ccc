@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     top: 'users/top',
     admin: 'users/admin'
   }
+  devise_scope :user do
+    #なぜかログアウトのリンクがgetメソッドで飛ばされるため明示
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
 
   namespace :users do
     resources :admin, only:[:index, :show]
@@ -17,6 +21,11 @@ Rails.application.routes.draw do
     top: 'companies/top',
     admin: 'companies/admin'
   }
+
+  devise_scope :company do
+    #なぜかログアウトのリンクがgetメソッドで飛ばされるため明示
+    get '/companies/sign_out' => 'companies/sessions#destroy'
+  end
 
   namespace :companies do
     resources :admin, only:[:index, :show]
