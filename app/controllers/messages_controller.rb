@@ -2,13 +2,16 @@ class MessagesController < ApplicationController
   before_action do
     @conversation = Conversation.find(params[:conversation_id])
   end
-  layout 'admin'
 
-  def index
+  layout :select_layout
+
+    def index
     @messages = @conversation.messages
     @user = @conversation.user
     @user_id = @user.id
-    @company_id = @conversation.company.id
+    @company = @conversation.company
+    @company_id = @company.id
+
 
     if @messages.length > 10
       @over_ten = true
@@ -45,6 +48,14 @@ class MessagesController < ApplicationController
 
   def message_params
     params.require(:message).permit(:body, :user_id,:company_id)
+  end
+
+  def select_layout
+    if company_signed_in?
+      'company_admin'
+    elsif user_signed_in?
+      'user_admin'
+    end
   end
 
 end

@@ -71,6 +71,11 @@ img{ max-width:100%;}
   vertical-align: top;
   width: 92%;
 }
+
+.received_msg p{
+  margin-bottom: auto;
+}
+
 .received_withd_msg p {
   background: #ebebeb none repeat scroll 0 0;
   border-radius: 3px;
@@ -142,6 +147,6 @@ img{ max-width:100%;}
 }
 .messaging { padding: 0 0 50px 0;}
 .msg_history {
-  height: 516px;
+  height: auto;
   overflow-y: auto;
 }

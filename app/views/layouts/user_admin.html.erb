@@ -19,10 +19,10 @@
 
 <body>
 <nav class="navbar navbar-dark sticky-top bg-dark cflex-md-nowrap p-0">
-  <%= link_to("#{@current_company.company_name}さま", companies_admin_index_path,class:"navbar-brand col-sm-3 col-md-2 mr-0") if company_signed_in? %>
+  <%= link_to("#{current_user.name}さま", users_admin_index_path,class:"navbar-brand col-sm-3 col-md-2 mr-0") if user_signed_in? %>
   <ul class="navbar-nav px-3">
     <li class="nav-item text-nowrap">
-      <%= link_to('ログアウト', destroy_company_session_path, method: :delete,class:"nav-link") if company_signed_in? %>
+      <%= link_to('ログアウト', destroy_user_session_path, method: :delete,class:"nav-link") if user_signed_in? %>
     </li>
   </ul>
 </nav>
@@ -36,7 +36,7 @@
         </h6>
         <ul class="nav flex-column">
           <li class="nav-item">
-            <%= link_to("登録情報の確認・編集", companies_admin_path(current_company.id),class:"nav-link") %>
+            <%= link_to("登録情報の確認・編集", users_admin_path(current_user.id),class:"nav-link") %>
           </li>
 
           <li class="nav-item">
@@ -52,10 +52,10 @@
         </h6>
         <ul class="nav flex-column mb-2">
           <li class="nav-item">
-            <%= link_to("ホーム", companies_admin_index_path,class:"nav-link") if company_signed_in? %>
+            <%= link_to("ホーム", users_admin_index_path,class:"nav-link") if user_signed_in? %>
           </li>
           <li class="nav-item">
-            <%= link_to('ログアウト', destroy_company_session_path, method: :delete,class:"nav-link") if company_signed_in? %>
+            <%= link_to('ログアウト', destroy_user_session_path, method: :delete,class:"nav-link") if user_signed_in? %>
           </li>
         </ul>
       </div>
