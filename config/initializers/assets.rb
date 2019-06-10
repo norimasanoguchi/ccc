@@ -18,3 +18,4 @@ Rails.application.config.assets.precompile += %w( thme_Creative/css/creative.min
 Rails.application.config.assets.precompile += %w( thme_Creative/creative.min.js )
 Rails.application.config.assets.precompile += %w( template/admin.css )
 Rails.application.config.assets.precompile += %w( users/form.css )
+Rails.application.config.assets.precompile += %w( template/chat.css )

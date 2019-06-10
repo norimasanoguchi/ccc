@@ -1,6 +1,6 @@
 class Companies::AdminController < ApplicationController
   before_action :authenticate_company!
-  layout 'admin'
+  layout 'company_admin'
 
  def index
    @current_company = current_company

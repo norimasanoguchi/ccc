@@ -11,13 +11,12 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <%= stylesheet_link_tag    'template/admin', :media => "all" %>
-  <%= stylesheet_link_tag    'template/chat', :media => "all" %>
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" rel="stylesheet">
 
 </head>
 
 <body>
-<nav class="navbar navbar-dark sticky-top cflex-md-nowrap p-0">
+<nav class="navbar navbar-dark sticky-top bg-dark cflex-md-nowrap p-0">
   <%= link_to("#{@current_company.company_name}さま", companies_admin_index_path,class:"navbar-brand col-sm-3 col-md-2 mr-0") if company_signed_in? %>
   <ul class="navbar-nav px-3">
     <li class="nav-item text-nowrap">

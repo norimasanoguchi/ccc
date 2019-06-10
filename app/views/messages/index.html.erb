@@ -1,51 +1,211 @@
-<% if @over_ten %>
-  <%= link_to '以前のメッセージ', '?m=all' %>
-<% end %>
-
-<div class="ui segment">
-  <% @messages.each do |message| %>
-    <% if message.body.present? %>
-      <div class="item">
-        <div class="content">
-          <% if message.company_id.present? %>
-            <d iv class="header"><strong><%= message.company.company_name %></strong> <%= message.message_time %></div>
-          <% elsif message.user_id.present? %>
-            <d iv class="header"><strong><%= message.user.name %></strong> <%= message.message_time %></div>
+<div class="container">
+  <div class="messaging">
+    <div class="inbox_msg">
+<!--      <div class="inbox_people">-->
+<!--        <div class="headind_srch">-->
+<!--          <div class="recent_heading">-->
+<!--            <h4>メッセージ一覧</h4>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="inbox_chat">-->
+<!--          <div class="chat_list active_chat">-->
+<!--            <div class="chat_people">-->
+<!--              <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>-->
+<!--              <div class="chat_ib">-->
+<!--                <h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>-->
+<!--                <p>Test, which is a new approach to have all solutions-->
+<!--                  astrology under one roof.</p>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="chat_list">-->
+<!--            <div class="chat_people">-->
+<!--              <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>-->
+<!--              <div class="chat_ib">-->
+<!--                <h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>-->
+<!--                <p>Test, which is a new approach to have all solutions-->
+<!--                  astrology under one roof.</p>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="chat_list">-->
+<!--            <div class="chat_people">-->
+<!--              <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>-->
+<!--              <div class="chat_ib">-->
+<!--                <h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>-->
+<!--                <p>Test, which is a new approach to have all solutions-->
+<!--                  astrology under one roof.</p>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="chat_list">-->
+<!--            <div class="chat_people">-->
+<!--              <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>-->
+<!--              <div class="chat_ib">-->
+<!--                <h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>-->
+<!--                <p>Test, which is a new approach to have all solutions-->
+<!--                  astrology under one roof.</p>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="chat_list">-->
+<!--            <div class="chat_people">-->
+<!--              <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>-->
+<!--              <div class="chat_ib">-->
+<!--                <h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>-->
+<!--                <p>Test, which is a new approach to have all solutions-->
+<!--                  astrology under one roof.</p>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="chat_list">-->
+<!--            <div class="chat_people">-->
+<!--              <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>-->
+<!--              <div class="chat_ib">-->
+<!--                <h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>-->
+<!--                <p>Test, which is a new approach to have all solutions-->
+<!--                  astrology under one roof.</p>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="chat_list">-->
+<!--            <div class="chat_people">-->
+<!--              <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>-->
+<!--              <div class="chat_ib">-->
+<!--                <h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>-->
+<!--                <p>Test, which is a new approach to have all solutions-->
+<!--                  astrology under one roof.</p>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+      <div class="mesgs">
+        <div class="msg_history">
+          <% if @over_ten %>
+            <%= link_to '以前のメッセージ', '?m=all' %>
           <% end %>
-          <div class="list">
-            <div class="item">
-              <%= image_tag @user.image_url(:thumb) if message.user_id.present? && @user.image.present? %>
-              <i class="right triangle icon"></i>
-              <%= message.body %> /
-              <% if message.user == current_user || message.company == current_company%>
-                <%#= message.read.false ? '既読' : '未読' %>
-                <%= '未読' if message.read == false %>
+
+          <% @messages.each do |message| %>
+            <% if company_signed_in? %>
+              <% if message.user_id.present? %>
+                <div class="incoming_msg">
+                  <% if @user.image.present? %><div class="incoming_msg_img"> <%= image_tag @user.image.url %> </div><% end %>
+                  <div class="received_msg">
+                    <div class="received_withd_msg">
+                      <p><%= message.body %></p>
+                      <span class="time_date"> <%= message.created_at.strftime("%Y-%m-%d %H:%M:%S") %></span>
+                    </div>
+                  </div>
+                </div>
+               <% elsif message.company_id.present?%>
+                <div class="outgoing_msg">
+                  <div class="sent_msg">
+                    <p><%= message.body %></p>
+                    <span class="time_date"> <%= message.created_at.strftime("%Y-%m-%d %H:%M:%S") %></span>
+                  </div>
+                </div>
+               <% end %>
+
+              <% elsif user_signed_in? %>
+              <% if message.company_id.present? %>
+                <div class="incoming_msg">
+                  <div class="incoming_msg_img"> <%= image_tag @user.image.url if @user.image.present? %> </div>
+                  <div class="received_msg">
+                    <div class="received_withd_msg">
+                      <p><%= message.body %></p>
+                      <span class="time_date"> <%= message.created_at.strftime("%Y-%m-%d %H:%M:%S") %></span>
+                    </div>
+                  </div>
+                </div>
+              <% elsif message.user_id.present?%>
+                <div class="outgoing_msg">
+                  <div class="sent_msg">
+                    <p><%= message.body %></p>
+                    <span class="time_date"> <%= message.created_at.strftime("%Y-%m-%d %H:%M:%S") %></span>
+                  </div>
+                </div>
               <% end %>
-            </div>
-          </div>
+            <% end %>
+          <% end %>
+
+        <div class="type_msg">
+<!--            <div class="input_msg_write">-->
+              <%= form_with(model: [@conversation, @message],class:"input_msg_write") do |f| %>
+                <%= f.text_area :body,placeholder:"Type a message", class:"write_msg" %>
+                <% if company_signed_in? %>
+                  <%= f.text_field :company_id, value: @company_id , type: "hidden"  %>
+                <% elsif user_signed_in? %>
+                  <%= f.text_field :user_id, value: @user_id, type: "hidden"  %>
+                <% end %>
+                <button class="msg_send_btn" type="button">
+                  <%= f.submit("送") %>
+                  #TODO:inputの上下paddingをいじればボタンが入るようになる。
+<!--                  <i class="fas fa-paper-plane" aria-hidden="true"></i>-->
+<!--                  <i class="fas fa-paper-plane"></i>-->
+                </button>
+              <% end %>
+
+<!--            <input type="text" class="write_msg" placeholder="Type a message" />-->
+<!--            <button class="msg_send_btn" type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>-->
+<!--            </div>-->
         </div>
       </div>
-    <% end %>
-  <% end %>
+    </div>
+  </div>
 </div>
 
-<%= form_with(model: [@conversation, @message]) do |f| %>
-  <div class="field">
-    <%= f.text_area :body, class: "form-control" %>
-  </div>
-    <% if company_signed_in? %>
-      <%= f.text_field :company_id, value: @company_id , type: "hidden"  %>
-    <% elsif user_signed_in? %>
-      <%= f.text_field :user_id, value: @user_id, type: "hidden"  %>
-    <% end %>
 
-  <div>
-    <%= f.submit "メッセージを送る" %>
-  </div>
-<% end %>
 
-  <% if company_signed_in? %>
-    <%= link_to("企業管理画面トップ",companies_admin_index_path) %>
-  <% elsif user_signed_in? %>
-    <%= link_to("ユーザー管理画面トップ",users_admin_index_path) %>
-  <% end %>
+
+<%# if @over_ten %>
+  <%#= link_to '以前のメッセージ', '?m=all' %>
+<%# end %>
+
+<!--<div class="ui segment">-->
+  <%# @messages.each do |message| %>
+    <%# if message.body.present? %>
+<!--      <div class="item">-->
+<!--        <div class="content">-->
+          <%# if message.company_id.present? %>
+<!--            <d iv class="header"><strong><%#= message.company.company_name %></strong> <%#= message.message_time %></div>-->
+          <%# elsif message.user_id.present? %>
+<!--            <d iv class="header"><strong><%#= message.user.name %></strong> <%#= message.message_time %></div>-->
+          <%# end %>
+<!--          <div class="list">-->
+<!--            <div class="item">-->
+              <%#= image_tag @user.image_url(:thumb) if message.user_id.present? && @user.image.present? %>
+<!--              <i class="right triangle icon"></i>-->
+<!--              <%#= message.body %> /-->
+              <%# if message.user == current_user || message.company == current_company%>
+                <%#= message.read.false ? '既読' : '未読' %>
+                <%#= '未読' if message.read == false %>
+              <%# end %>
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+    <%# end %>
+  <%# end %>
+<!--</div>-->
+
+<%#= form_with(model: [@conversation, @message]) do |f| %>
+<!--  <div class="field">-->
+    <%#= f.text_area :body, class: "form-control" %>
+<!--  </div>-->
+    <%# if company_signed_in? %>
+      <%#= f.text_field :company_id, value: @company_id , type: "hidden"  %>
+    <%# elsif user_signed_in? %>
+      <%#= f.text_field :user_id, value: @user_id, type: "hidden"  %>
+    <%# end %>
+
+<!--  <div>-->
+    <%#= f.submit "メッセージを送る" %>
+<!--  </div>-->
+<%# end %>
+
+  <%# if company_signed_in? %>
+    <%#= link_to("企業管理画面トップ",companies_admin_index_path) %>
+  <%# elsif user_signed_in? %>
+    <%#= link_to("ユーザー管理画面トップ",users_admin_index_path) %>
+  <%# end %>
