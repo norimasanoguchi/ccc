@@ -5,7 +5,8 @@ class MessagesController < ApplicationController
 
   def index
     @messages = @conversation.messages
-    @user_id = @conversation.user.id
+    @user = @conversation.user
+    @user_id = @user.id
     @company_id = @conversation.company.id
 
     if @messages.length > 10
@@ -18,11 +19,14 @@ class MessagesController < ApplicationController
       @messages = @conversation.messages
     end
 
-    if @messages.last
-      #自分の投稿じゃないメッセージをread:trueに
-        @messages.where.not(company_id: current_company.id).update_all(read: true) if current_company.present?
-        @messages.where.not(user_id: current_user.id).update_all(read: true) if current_user.present?
-    end
+    # if @messages.last
+    #   #自分の投稿じゃないメッセージをread:trueに
+    #     @messages.where.not(company_id: current_company.id).update_all(read: true) if current_company.present?
+    #     @messages.where.not(user_id: current_user.id).update_all(read: true) if current_user.present?
+    # end
+    @messages.where(company_id: current_company.id).update_all(read: true) if company_signed_in?
+    @messages.where(user_id: current_user.id).update_all(read: true) if user_signed_in?
+
     @messages = @messages.order(:created_at)
     @message = @conversation.messages.build
   end

@@ -53,6 +53,11 @@
     <%= f.collection_radio_buttons :chinese_skill, User.chinese_skills, :first, :first, autofocus: true, autocomplete: "tel" %>
   </div>
 
+  <div class="field">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
+
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>現在、右記メールアドレスの承認待ちです。: <%= resource.unconfirmed_email %></div>
   <% end %>
