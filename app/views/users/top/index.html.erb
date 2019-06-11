@@ -1,7 +1,208 @@
-<h1>ようこそ中国語求人センターへ！</h1>
+<body id="page-top">
 
-<%= link_to("マイページを見る", users_admin_index_path) if user_signed_in? %>
-<%= link_to("今すぐアカウント登録", new_user_registration_path) unless user_signed_in? %>
-<%= link_to("ログインする", new_user_session_path) unless user_signed_in? %>
-<%= link_to('ログアウトする', destroy_user_session_path, method: :delete) if user_signed_in? %>
-<%= link_to("採用企業の方はこちら",  companies_top_index_path) %>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand js-scroll-trigger" href="#page-top">Chinese Career Center</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto my-2 my-lg-0">
+        <li class="nav-item">
+          <%= link_to("マイページを見る", users_admin_index_path,class:"nav-link js-scroll-trigger") if user_signed_in? %>
+        </li>
+        <li class="nav-item">
+          <%= link_to("今すぐアカウント登録", new_user_registration_path,class:"nav-link js-scroll-trigger") unless user_signed_in? %>
+        </li>
+        <li class="nav-item">
+          <%= link_to("ログインする", new_user_session_path,class:"nav-link js-scroll-trigger") unless user_signed_in? %>
+        </li>
+        <li class="nav-item">
+          <%= link_to('ログアウトする', destroy_user_session_path, method: :delete,class:"nav-link js-scroll-trigger") if user_signed_in? %>
+        </li>
+        <li class="nav-item">
+          <%= link_to("採用企業の方はこちら",  companies_top_index_path,class:"nav-link js-scroll-trigger") %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Masthead -->
+<header class="masthead">
+  <div class="container h-100">
+    <div class="row h-100 align-items-center justify-content-center text-center">
+      <div class="col-lg-10 align-self-end">
+        <h1 class="text-uppercase text-white font-weight-bold">中国語で仕事しよう！</h1>
+        <hr class="divider my-4">
+      </div>
+      <div class="col-lg-8 align-self-baseline">
+        <%= link_to("いますぐ登録！", new_user_registration_path,class:"btn btn-primary btn-xl js-scroll-trigger") unless  user_signed_in? %>
+        <%= link_to("メッセージを確認！", users_admin_index_path,class:"btn btn-primary btn-xl js-scroll-trigger") if user_signed_in? %>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- About Section -->
+<section class="page-section bg-primary" id="about">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center">
+        <h2 class="text-white mt-0">中国語を活かそう</h2>
+        <hr class="divider light my-4">
+        <p class="text-white-50 mb-4">せっかく使える中国語のスキルを活かしたいと思いませんか？『中国語求人センター』は中国語を活かしてお仕事したい人と採用企業を結び、仕事探しのお手伝いをさせていただきます。</p>
+        <%= link_to("いますぐ登録！", new_user_registration_path,class:"btn btn-light btn-xl") unless user_signed_in? %>
+        <%= link_to("メッセージを確認！", users_admin_index_path,class:"btn btn-light btn-xl") if user_signed_in? %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="page-section" id="services">
+<div class="container">
+  <h2 class="text-center mt-0">サービスの特徴</h2>
+  <hr class="divider my-4">
+  <div class="row">
+    <div class="col-lg-3 col-md-6 text-center">
+      <div class="mt-5">
+        <i class="fab fa-4x fa-zhihu text-primary mb-4"></i>
+        <h3 class="h4 mb-2">中国語特化</h3>
+        <p class="text-muted mb-0">中国語の求人にフォーカス</p>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6 text-center">
+      <div class="mt-5">
+        <i class="fas fa-4x fa-address-card text-primary mb-4"></i>
+        <h3 class="h4 mb-2">情報登録</h3>
+        <p class="text-muted mb-0">企業にPRする情報を登録可能</p>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6 text-center">
+      <div class="mt-5">
+        <i class="fas fa-4x fa-comments text-primary mb-4"></i>
+        <h3 class="h4 mb-2">メッセージ機能</h3>
+        <p class="text-muted mb-0">採用したい企業からメッセージが届きます</p>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6 text-center">
+      <div class="mt-5">
+        <i class="fab fa-4x fa-creative-commons-nc-jp text-primary mb-4"></i>
+        <h3 class="h4 mb-2">無料</h3>
+        <p class="text-muted mb-0">利用・内定時など一切費用はかかりません</p>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- Portfolio Section-->
+<section id="portfolio">
+  <div class="container-fluid p-0">
+    <div class="row no-gutters">
+      <div class="col-lg-4 col-sm-6">
+        <a class="portfolio-box" href="img/portfolio/fullsize/1.jpg">
+          <!--          <img class="img-fluid" src="img/portfolio/thumbnails/1.jpg" alt="">-->
+          <%= image_tag(asset_path("img/portfolio/thumbnails/1.jpg"),class:"img-fluid" )  %>
+          <div class="portfolio-box-caption">
+            <div class="project-category text-white-50">
+              Category
+            </div>
+            <div class="project-name">
+              Project Name
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        <a class="portfolio-box" href="img/portfolio/fullsize/2.jpg">
+          <!--          <img class="img-fluid" src="img/portfolio/thumbnails/2.jpg" alt="">-->
+          <%= image_tag(asset_path("img/portfolio/thumbnails/2.jpg"),class:"img-fluid" )  %>
+          <div class="portfolio-box-caption">
+            <div class="project-category text-white-50">
+              Category
+            </div>
+            <div class="project-name">
+              Project Name
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        <a class="portfolio-box" href="img/portfolio/fullsize/3.jpg">
+          <!--          <img class="img-fluid" src="img/portfolio/thumbnails/3.jpg" alt="">-->
+          <%= image_tag(asset_path("img/portfolio/thumbnails/3.jpg"),class:"img-fluid" )  %>
+          <div class="portfolio-box-caption">
+            <div class="project-category text-white-50">
+              Category
+            </div>
+            <div class="project-name">
+              Project Name
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        <a class="portfolio-box" href="img/portfolio/fullsize/4.jpg">
+          <!--          <img class="img-fluid" src="img/portfolio/thumbnails/4.jpg" alt="">-->
+          <%= image_tag(asset_path("img/portfolio/thumbnails/4.jpg"),class:"img-fluid" )  %>
+          <div class="portfolio-box-caption">
+            <div class="project-category text-white-50">
+              Category
+            </div>
+            <div class="project-name">
+              Project Name
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        <a class="portfolio-box" href="img/portfolio/fullsize/5.jpg">
+          <!--          <img class="img-fluid" src="img/portfolio/thumbnails/5.jpg" alt="">-->
+          <%= image_tag(asset_path("img/portfolio/thumbnails/5.jpg"),class:"img-fluid" )  %>
+          <div class="portfolio-box-caption">
+            <div class="project-category text-white-50">
+              Category
+            </div>
+            <div class="project-name">
+              Project Name
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        <a class="portfolio-box" href="img/portfolio/fullsize/6.jpg">
+          <!--          <img class="img-fluid" src="img/portfolio/thumbnails/6.jpg" alt="">-->
+          <%= image_tag(asset_path("img/portfolio/thumbnails/6.jpg"),class:"img-fluid" )  %>
+          <div class="portfolio-box-caption p-3">
+            <div class="project-category text-white-50">
+              Category
+            </div>
+            <div class="project-name">
+              Project Name
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="page-section bg-dark text-white">
+  <div class="container text-center">
+    <h2 class="mb-4">完全無料！費用は一切かかりません</h2>
+    <%= link_to("いますぐ登録！", new_user_registration_path,class:"btn btn-light btn-xl") unless user_signed_in? %>
+    <%= link_to("メッセージを確認！", users_admin_index_path,class:"btn btn-light btn-xl") if user_signed_in? %>      </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-light py-5">
+  <div class="container">
+    <div class="small text-center text-muted">Copyright &copy; 2019 - Start Bootstrap</div>
+  </div>
+</footer>
+
+</body>

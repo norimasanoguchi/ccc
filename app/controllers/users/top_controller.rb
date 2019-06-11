@@ -1,4 +1,6 @@
 class Users::TopController < ApplicationController
+  layout 'top'
+
   def index
   end
 
