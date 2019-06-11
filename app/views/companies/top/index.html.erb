@@ -42,8 +42,8 @@
       </div>
       <div class="col-lg-8 align-self-baseline">
         <p class="text-white-75 font-weight-light mb-5">中国語求人センターは中国語のできる人材と企業を結ぶスカウトサービスです。</p>
-        <%= link_to("いますぐ使ってみる！", new_company_registration_path,class:"btn btn-primary btn-xl js-scroll-trigger") if company_signed_in? %>
-        <%= link_to("人材をスカウト！", companies_admin_index_path,class:"btn btn-primary btn-xl js-scroll-trigger") unless company_signed_in? %>
+        <%= link_to("いますぐ使ってみる！", new_company_registration_path,class:"btn btn-primary btn-xl js-scroll-trigger") unless company_signed_in? %>
+        <%= link_to("人材をスカウト！", companies_admin_index_path,class:"btn btn-primary btn-xl js-scroll-trigger") if company_signed_in? %>
       </div>
     </div>
   </div>
@@ -57,8 +57,8 @@
         <h2 class="text-white mt-0">中国語を活かそう</h2>
         <hr class="divider light my-4">
         <p class="text-white-50 mb-4">せっかく使える中国語のスキルを活かしたいと思いませんか？『中国語求人センター』は中国語を活かしてお仕事したい人と採用企業を結び、仕事探しのお手伝いをさせていただきます。</p>
-        <%= link_to("いますぐ使ってみる！", new_company_registration_path,class:"btn btn-light btn-xl") if company_signed_in? %>
-        <%= link_to("人材をスカウト！", companies_admin_index_path,class:"btn btn-light btn-xl") unless company_signed_in? %>
+        <%= link_to("いますぐ使ってみる！", new_company_registration_path,class:"btn btn-light btn-xl") unless company_signed_in? %>
+        <%= link_to("人材をスカウト！", companies_admin_index_path,class:"btn btn-light btn-xl") if company_signed_in? %>
       </div>
     </div>
   </div>
@@ -197,8 +197,8 @@
 <section class="page-section bg-dark text-white">
   <div class="container text-center">
     <h2 class="mb-4">完全無料！費用は一切かかりません</h2>
-    <%= link_to("いますぐ使ってみる！", new_company_registration_path,class:"btn btn-light btn-xl") if company_signed_in? %>
-    <%= link_to("人材をスカウト！", companies_admin_index_path,class:"btn btn-light btn-xl") unless company_signed_in? %>
+    <%= link_to("いますぐ使ってみる！", new_company_registration_path,class:"btn btn-light btn-xl") unless company_signed_in? %>
+    <%= link_to("人材をスカウト！", companies_admin_index_path,class:"btn btn-light btn-xl") if company_signed_in? %>
 <!--    <a class="btn btn-light btn-xl" href="https://startbootstrap.com/themes/creative/">Download Now!</a>-->
   </div>
 </section>
