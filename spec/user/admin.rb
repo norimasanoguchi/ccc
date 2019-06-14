@@ -30,4 +30,17 @@ describe 'ユーザー管理画面', type: :system do
       expect(page).to have_selector 'p',text: 'ログアウトしました'
     end
   end
+
+  context 'メッセージを操作する' do
+    before do
+      #メッセージを作る
+    end
+
+    it 'メッセージを送る' do
+      #メッセージを見る操作
+      # メッセージを送る操作
+    end
+
+  end
+
 end
