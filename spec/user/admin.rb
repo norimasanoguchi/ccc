@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'ユーザー管理画面', type: :system do
   before do
-    let(:user_a){ Factory.Bot.create(:user, name:'test', email: 'test@mail.com', email: 'password') }
+    let(:user_a){ Factory.Bot.create(:user, name:'test', email: 'test@mail.com', password: 'password') }
     visit new_user_session_path
     fill_in 'user_email', with: user_a.email
     fill_in 'user_password', with: user_a.password
