@@ -16,7 +16,7 @@ class User < ApplicationRecord
 
   enum sex: {女: 0, 男: 1}
   enum edu_level: { bachelor: 0, doctor: 1, master: 2, high_school: 3,junior_high:4,other:5 }
-  enum jlpt: { no_certif: 0, N1: 1, N2: 2, N3: 3, N4: 4, N5: 5 }
+  enum jlpt: {  N1: 1, N2: 2, N3: 3, N4: 4, N5: 5, no_certif: 0 }
   enum management: { yes: true, no: false }
-  enum chinese_skill: { native: 0, beginner: 1, intermediate: 2, advanced: 3, fluent: 4 }
+  enum chinese_skill: { native: 0, fluent: 4, advanced: 3, intermediate: 2,beginner: 1 }
 end

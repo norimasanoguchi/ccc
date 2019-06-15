@@ -7,9 +7,9 @@
 <p>居住地：<%= Prefecture.find_by(id:@user.prefecture_id).name%></p>
 <p>電話番号：<%= @user.tel%></p>
 <p>Wechat id：<%= @user.wechat_id%></p>
-<p>学歴：<%= @user.edu_level%></p>
-<p>日本語能力：<%= @user.jlpt%></p>
-<p>中国語スキル：<%= @user.chinese_skill%></p>
+<p>学歴：<%= @user.edu_level_i18n%></p>
+<p>日本語能力試験：<%= @user.jlpt_i18n%></p>
+<p>中国語スキル：<%= @user.chinese_skill_i18n%></p>
 <p><%= image_tag @user.image.url if @user.image.present? %></p>
 
 <%= link_to("登録情報を編集する", edit_user_registration_path) if user_signed_in? %>

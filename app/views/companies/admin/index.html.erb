@@ -25,9 +25,9 @@
            <td id="user_sex"><%= user.sex %></td>
            <td id="user_visa"><%= Visa.find_by(id:user.visa_id).name %></td>
            <td id="user_prefecture"><%= Prefecture.find_by(id:user.prefecture_id).name %></td>
-           <td id="user_edu_level"><%= user.edu_level %></td>
-           <td id="user_chinese_skill"><%= user.chinese_skill%></td>
-           <td id="user_jlpi"><%= user.jlpt %></td>
+           <td id="user_edu_level"><%= user.edu_level_i18n %></td>
+           <td id="user_chinese_skill"><%= user.chinese_skill_i18n %></td>
+           <td id="user_jlpi"><%= user.jlpt_i18n %></td>
            <td><%= link_to "詳細", users_admin_path(id:user),id:"info_userid_#{user.id}" %></td>
            <td><%= link_to 'メッセージ', conversations_path(company_id: current_company.id, user_id: user.id), method: :post,id:"message_userid_#{user.id}" %></td>
          </tr>

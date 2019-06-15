@@ -6,10 +6,10 @@ class Companies::AdminController < ApplicationController
    @current_company = current_company
    @sexes = User.sexes
    @visas = Visa.all
-   @edu_levels = User.edu_levels
-   @jlpts = User.jlpts
+   @edu_levels = User.edu_levels_i18n.invert
+   @jlpts = User.jlpts_i18n.invert
    @Prefectures = Prefecture.all
-   @chinese_skills = User.chinese_skills
+   @chinese_skills = User.chinese_skills_i18n.invert
    if params[:q].present?
      @q = User.ransack(search_params)
      @users = @q.result
