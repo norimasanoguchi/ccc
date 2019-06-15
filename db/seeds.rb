@@ -111,5 +111,6 @@ prefectures = Prefecture.create([
                chinese_skill:"native",
                visa_id:visa_id,
                prefecture_id:prefecture_id,
+               confirmed_at: DateTime.now,
                image:File.open("./app/assets/images/img/sample.jpg"))
 end
