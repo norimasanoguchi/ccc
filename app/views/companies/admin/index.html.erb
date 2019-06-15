@@ -28,7 +28,7 @@
            <td id="user_edu_level"><%= user.edu_level %></td>
            <td id="user_chinese_skill"><%= user.chinese_skill%></td>
            <td id="user_jlpi"><%= user.jlpt %></td>
-           <td><%= link_to "詳細", users_admin_path(id:user) %></td>
+           <td><%= link_to "詳細", users_admin_path(id:user),id:"info_userid_#{user.id}" %></td>
            <td><%= link_to 'メッセージ', conversations_path(company_id: current_company.id, user_id: user.id), method: :post,id:"message_userid_#{user.id}" %></td>
          </tr>
        <% end %>

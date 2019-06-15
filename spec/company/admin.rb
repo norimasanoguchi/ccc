@@ -32,6 +32,13 @@ describe 'ユーザー管理画面', type: :system do
     end
   end
 
+  context 'ユーザー詳細を見る場合' do
+    it 'メッセージが正常に送れる' do
+      click_button "info_userid_#{user_a.id}"
+      expect(page).to have_content '登録情報'
+    end
+  end
+
   context 'メッセージ機能を利用する場合' do
     before do
       let(:user_a){ Factory.Bot.create(:user) }
