@@ -18,7 +18,7 @@ class Companies::AdminController < ApplicationController
    else
      @q = User.ransack(params[:q])
      @q.build_sort if @q.sorts.empty?
-     @users = User.all.order(created_at: :desc)
+     @users = User.all.includes(:visa, :prefecture).order(created_at: :desc)
    end
  end
 
@@ -46,7 +46,7 @@ def search_params
             :prefecture_id_eq,
             :visa_id_eq,
             :s,
-            edu_level_eq: {},
-            jlpt_in: {},
-            chinese_skill_in: {})
+            edu_level_eq: [],
+            jlpt_in: [],
+            chinese_skill_in: [])
 end

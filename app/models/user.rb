@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   mount_uploader :image, ImageUploader
   has_many :conversations
+  belongs_to :visa
+  belongs_to :prefecture
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable, :trackable
 
