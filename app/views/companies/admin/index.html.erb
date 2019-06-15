@@ -9,7 +9,7 @@
             <th><%= sort_link(@q, :updated_at,"情報更新日", default_order: :desc) %></th>
             <th><%= sort_link(@q, :name, default_order: :desc) %></th>
             <th><%= sort_link(@q, :sex,"性別") %></th>
-            <th><%= sort_link(@q, :visa,"ビザ") %></th>
+            <th><%= sort_link(@q, :visas,"ビザ", default_order: :desc) %></th>
             <th><%= sort_link(@q, :Prefecture,"居住地") %></th>
             <th><%= sort_link(@q, :edu_level,"学歴") %></th>
             <th><%= sort_link(@q, :chinese_skill,"中国語スキル") %></th>
@@ -23,8 +23,8 @@
            <td><%= user.updated_at.strftime("%Y-%m-%d") %></td>
            <td id="user_name"><%= user.name %></td>
            <td id="user_sex"><%= user.sex %></td>
-           <td id="user_visa"><%= Visa.find_by(id:user.visa_id).name %></td>
-           <td id="user_prefecture"><%= Prefecture.find_by(id:user.prefecture_id).name %></td>
+           <td id="user_visa"><%= @visas.find_by(id:user.visa_id).name %></td>
+           <td id="user_prefecture"><%= @Prefectures.find_by(id:user.prefecture_id).name %></td>
            <td id="user_edu_level"><%= user.edu_level_i18n %></td>
            <td id="user_chinese_skill"><%= user.chinese_skill_i18n %></td>
            <td id="user_jlpi"><%= user.jlpt_i18n %></td>
