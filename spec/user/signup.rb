@@ -125,7 +125,17 @@ describe 'ユーザーサインイン機能', type: :system do
       fill_in 'user_password_confirmation', with: 'bad_password'
       expect(page).to have_content '確認用パスワードとパスワードの入力が一致しません'
     end
-
+    it 'パスワードが6文字以下の場合エラーが発生する' do
+      fill_in '名前', with: 'テスト太郎'
+      fill_in 'inputBirthday', with: '2019/01/01'
+      fill_in 'user_tel', with: '00000000000'
+      select '技術・人文知識・国際業務', from: 'user_visa_id'
+      fill_in 'user_email', with: 'test@test.com'
+      fill_in 'user_wechat_id', with: 'test_id'
+      fill_in 'user_password', with: 'pas'
+      fill_in 'user_password_confirmation', with: 'pas'
+      expect(page).to have_content 'パスワードは6文字以上で入力してください'
+    end
 
   end
 end
