@@ -53,8 +53,8 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :edu_level_eq,"学歴" %>
-    <%= f.collection_check_boxes(:edu_level_eq,  @edu_levels, :second, :first, include_hidden: false) do |r| %>
+    <%= f.label :edu_level_in,"学歴" %>
+    <%= f.collection_check_boxes(:edu_level_in, @edu_levels, :second, :first, include_hidden: false) do |r| %>
         <div class="form-check form-check-inline">
         <%= r.label(class:"form-check-label"){ r.check_box + r.text }  %>
       </div>
@@ -62,9 +62,9 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :jlpt_in ,"JLPT"%>
-    <%= f.collection_check_boxes :jlpt_in, @jlpts, :second, :first do |r|  %>
-      <div class="form-check form-check-inline">
+    <%= f.label :jlpt_in,"日本語能力試験" %>
+    <%= f.collection_check_boxes(:jlpt_in, @jlpts, :second, :first, include_hidden: false) do |r| %>
+        <div class="form-check form-check-inline">
         <%= r.label(class:"form-check-label"){ r.check_box + r.text }  %>
       </div>
     <% end %>
@@ -72,7 +72,7 @@
 
   <div class="form-group">
     <%= f.label :chinese_skill_in ,"中国語レベル"%>
-    <%= f.collection_check_boxes :chinese_skill_in, @chinese_skills, :second, :first do |r|   %>
+    <%= f.collection_check_boxes(:chinese_skill_in, @chinese_skills, :second, :first, include_hidden: false) do |r|   %>
       <div class="form-check form-check-inline">
         <%= r.label(class:"form-check-label"){ r.check_box + r.text }  %>
       </div>

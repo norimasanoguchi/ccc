@@ -3,6 +3,7 @@ class Companies::AdminController < ApplicationController
   layout 'company_admin'
 
  def index
+
    @current_company = current_company
    @sexes = User.sexes
    @visas = Visa.all
@@ -11,15 +12,28 @@ class Companies::AdminController < ApplicationController
    @Prefectures = Prefecture.all
    @chinese_skills = User.chinese_skills_i18n.invert
 
+   @users = User.all.includes(:visa, :prefecture)
+
    if params[:q].present?
-     @q = User.ransack(search_params)
-     @q.build_sort if @q.sorts.empty?
+     @q = @users.ransack(search_params)
+     # @q.build_sort if @q.sorts.empty?
      @users = @q.result
    else
-     @q = User.ransack(params[:q])
-     @q.build_sort if @q.sorts.empty?
-     @users = User.all.includes(:visa, :prefecture).order(created_at: :desc)
+       @q = User.ransack(params[:q])
+
+     # @q.build_sort if @q.sorts.empty?
    end
+
+   # if params[:q].present?
+   #   @users = User.all.includes(:visa, :prefecture)
+   #   @q = @users.ransack(search_params)
+   #   @q.build_sort if @q.sorts.empty?
+   #   @users = @q.result
+   # else
+   #   @q = User.ransack(params[:q])
+   #   @q.build_sort if @q.sorts.empty?
+   #   @users = User.all.includes(:visa, :prefecture).order(created_at: :desc)
+   # end
  end
 
   def show
@@ -29,7 +43,6 @@ class Companies::AdminController < ApplicationController
   def user_info
     @user = User.find_by(id:params[:id])
   end
-end
 
 private
 
@@ -46,7 +59,8 @@ def search_params
             :prefecture_id_eq,
             :visa_id_eq,
             :s,
-            edu_level_eq: [],
+            edu_level_in: [],
             jlpt_in: [],
             chinese_skill_in: [])
+  end
 end
