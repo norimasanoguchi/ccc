@@ -1,7 +1,9 @@
 <body id="page-top">
-
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+  <% flash.each do |name, msg| %>
+    <div class="alert alert-info"><%= msg %></div>
+  <% end %>
   <div class="container">
     <a class="navbar-brand js-scroll-trigger" href="#page-top">Chinese Career Center</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,13 +29,10 @@
       </ul>
     </div>
   </div>
-</nav>
 
+</nav>
 <!-- Masthead -->
 <header class="masthead">
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-
   <div class="container h-100">
     <div class="row h-100 align-items-center justify-content-center text-center">
       <div class="col-lg-10 align-self-end">

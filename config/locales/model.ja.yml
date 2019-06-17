@@ -1,26 +1,43 @@
 ja:
   activerecord:
     models:
-      blog: "ブログ"
       user: "ユーザー"
     attributes:
-      blog:
-        title: "タイトル"
-        content: "内容"
       user:
-        title: "タイトル"
         name: "名前"
+        email: "メールアドレス"
+        birthday: "誕生日"
+        sex: "性別"
+        visa: "ビザ"
+        prefecture: "居住地"
+        edu_level: "学歴"
+        jlpt: "日本語能力試験"
+        management: "管理職経験"
+        chinese_skill: "中国語レベル"
+        current_password: "現在のパスワード"
+        password: "パスワード"
+        password_confirmation: "確認用パスワード"
+        remember_me: "ログインを記憶"
+        tel: "電話番号"
+        image: "写真"
+      company:
+        company_name: "企業名"
+        contact_person: "担当者名"
         email: "メールアドレス"
         current_password: "現在のパスワード"
         password: "パスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "ログインを記憶"
+        tel: "電話番号"
+      message:
+        body: "本文"
+
   enums:
     user:
       sex:
         male: "男性"
         female: "女性"
-      edu_lebel:
+      edu_level:
         bachelor: "大学卒（学士）"
         doctor: "大学院卒（博士）"
         master: "大学院卒（修士）"
@@ -28,12 +45,10 @@ ja:
         junior_high: "中学卒業"
         other: "その他"
       jlpt:
-        none: "資格なし"
+        no_certif: "資格なし"
       chinese_skill:
         beginner: "初心者"
         intermediate: "中級者"
         advanced: "上級者"
         fluent: "流暢"
         native: "ネイティブ"
-
-

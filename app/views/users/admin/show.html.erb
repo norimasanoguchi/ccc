@@ -1,5 +1,7 @@
+<% flash.each do |name, msg| %>
+  <div class="alert alert-info"><%= msg %></div>
+<% end %>
 <h2 id="user_information">登録情報</h2>
-
 <p>ユーザー名：<%= @user.name%></p>
 <p>誕生日：<%= @user.birthday%></p>
 <p>性別：<%= @user.sex%></p>
@@ -7,9 +9,9 @@
 <p>居住地：<%= Prefecture.find_by(id:@user.prefecture_id).name%></p>
 <p>電話番号：<%= @user.tel%></p>
 <p>Wechat id：<%= @user.wechat_id%></p>
-<p>学歴：<%= @user.edu_level%></p>
-<p>日本語能力：<%= @user.jlpt%></p>
-<p>中国語スキル：<%= @user.chinese_skill%></p>
+<p>学歴：<%= @user.edu_level_i18n%></p>
+<p>日本語能力試験：<%= @user.jlpt_i18n%></p>
+<p>中国語スキル：<%= @user.chinese_skill_i18n%></p>
 <p><%= image_tag @user.image.url if @user.image.present? %></p>
 
 <%= link_to("登録情報を編集する", edit_user_registration_path) if user_signed_in? %>
