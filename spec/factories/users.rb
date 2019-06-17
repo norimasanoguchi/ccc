@@ -1,11 +1,11 @@
 FactoryBot.define do
   factory :user do
     name { 'テストユーザー1' }
-    email { 'test1@example.com' }
+    email { 'elisha@quigleyabshire.com' }
     password  { 'password' }
     birthday { '2019-01-01' }
     sex { '男' }
-    tel { "000-0000-0000" }
+    tel { "00000000000" }
     wechat_id { "test" }
     edu_level { "bachelor" }
     jlpt { "no_certif" }
