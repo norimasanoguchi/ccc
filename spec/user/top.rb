@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 describe 'ユーザートップ画面', type: :system do
   let(:login_user){ FactoryBot.create(:user, name:'test', email: 'test@mail.com', password: 'password') }
 
@@ -10,6 +9,7 @@ describe 'ユーザートップ画面', type: :system do
     end
 
     it '「いますぐ登録ボタン」が表示＆「メッセージを確認」が表示されてない' do
+      save_and_open_page
       expect(page).to have_content 'いますぐ登録'
       expect(page).not_to have_content 'メッセージを確認'
     end

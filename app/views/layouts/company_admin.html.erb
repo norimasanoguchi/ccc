@@ -18,52 +18,52 @@
 </head>
 
 <body>
-<nav class="navbar navbar-dark sticky-top bg-dark cflex-md-nowrap p-0">
-  <%= link_to("#{@current_company.company_name}さま", companies_admin_index_path,class:"navbar-brand col-sm-3 col-md-2 mr-0") if company_signed_in? %>
-  <ul class="navbar-nav px-3">
-    <li class="nav-item text-nowrap">
-      <%= link_to('ログアウト', destroy_company_session_path, method: :delete,class:"nav-link") if company_signed_in? %>
-    </li>
-  </ul>
-</nav>
-
-<div class="container-fluid">
-  <div class="row">
-    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-      <div class="sidebar-sticky">
-        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-          <span>メニュー</span>
-        </h6>
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <%= link_to("登録情報の確認・編集", companies_admin_path(current_company.id),class:"nav-link") %>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="users"></span>
-              メッセージ一覧（※作成中）
-            </a>
-          </li>
-        </ul>
-
-        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-          <span>その他</span>
-        </h6>
-        <ul class="nav flex-column mb-2">
-          <li class="nav-item">
-            <%= link_to("ホーム", companies_admin_index_path,class:"nav-link") if company_signed_in? %>
-          </li>
-          <li class="nav-item">
-            <%= link_to('ログアウト', destroy_company_session_path, method: :delete,class:"nav-link") if company_signed_in? %>
-          </li>
-        </ul>
-      </div>
+ <nav class="navbar navbar-dark sticky-top bg-dark cflex-md-nowrap p-0">
+      <%= link_to("#{@current_company.company_name}さま", companies_admin_index_path,class:"navbar-brand col-sm-3 col-md-2 mr-0") if company_signed_in? %>
+      <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+          <%= link_to('ログアウト', destroy_company_session_path, method: :delete,class:"nav-link") if company_signed_in? %>
+        </li>
+      </ul>
     </nav>
 
-    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-      <%= yield %>
-    </main>
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>メニュー</span>
+            </h6>
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <%= link_to("登録情報の確認・編集", companies_admin_path(current_company.id),class:"nav-link") %>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="users"></span>
+                  メッセージ一覧（※作成中）
+                </a>
+              </li>
+            </ul>
+
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>その他</span>
+            </h6>
+            <ul class="nav flex-column mb-2">
+              <li class="nav-item">
+                <%= link_to("ホーム", companies_admin_index_path,class:"nav-link") if company_signed_in? %>
+              </li>
+              <li class="nav-item">
+                <%= link_to('ログアウト', destroy_company_session_path, method: :delete,class:"nav-link") if company_signed_in? %>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+          <%= yield %>
+        </main>
       </div>
     </div>
   </body>

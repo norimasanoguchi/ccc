@@ -1,5 +1,8 @@
- <h1 class="h2">検索</h1>
- <%= render 'search' %>
+<% flash.each do |name, msg| %>
+  <div class="alert alert-info"><%= msg %></div>
+<% end %>
+<h1 class="h2">検索</h1>
+<%= render 'search' %>
  <hr>
  <h2>人材一覧</h2>
  <div class="table-responsive">
@@ -9,8 +12,8 @@
             <th><%= sort_link(@q, :updated_at,"情報更新日", default_order: :desc) %></th>
             <th><%= sort_link(@q, :name, default_order: :desc) %></th>
             <th><%= sort_link(@q, :sex,"性別") %></th>
-            <th><%= sort_link(@q, :visa,"ビザ") %></th>
-            <th><%= sort_link(@q, :Prefecture,"居住地") %></th>
+            <th><%= sort_link(@q, :visa_name,"ビザ", default_order: :desc) %></th>
+            <th><%= sort_link(@q, :prefecture_name,"居住地") %></th>
             <th><%= sort_link(@q, :edu_level,"学歴") %></th>
             <th><%= sort_link(@q, :chinese_skill,"中国語スキル") %></th>
             <th><%= sort_link(@q, :jlpt,"JLPT資格") %></th>
@@ -21,15 +24,15 @@
        <% @users.each do |user| %>
          <tr>
            <td><%= user.updated_at.strftime("%Y-%m-%d") %></td>
-           <td><%= user.name %></td>
-           <td><%= user.sex %></td>
-           <td><%= Visa.find_by(id:user.visa_id).name %></td>
-           <td><%= Prefecture.find_by(id:user.prefecture_id).name %></td>
-           <td><%= user.edu_level %></td>
-           <td><%= user.chinese_skill%></td>
-           <td><%= user.jlpt %></td>
-           <td><%= link_to "詳細", users_admin_path(id:user) %></td>
-           <td><%= link_to 'メッセージ', conversations_path(company_id: current_company.id, user_id: user.id), method: :post %></td>
+           <td id="user_name"><%= user.name %></td>
+           <td id="user_sex"><%= user.sex %></td>
+           <td id="user_visa"><%= user.visa.name %></td>
+           <td id="user_prefecture"><%= user.prefecture.name %></td>
+           <td id="user_edu_level"><%= user.edu_level_i18n %></td>
+           <td id="user_chinese_skill"><%= user.chinese_skill_i18n %></td>
+           <td id="user_jlpi"><%= user.jlpt_i18n %></td>
+           <td><%= link_to "詳細", users_admin_path(id:user),id:"info_userid_#{user.id}" %></td>
+           <td><%= link_to 'メッセージ', conversations_path(company_id: @current_company.id, user_id: user.id), method: :post,id:"message_userid_#{user.id}" %></td>
          </tr>
        <% end %>
      </tbody>

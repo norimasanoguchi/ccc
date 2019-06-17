@@ -1,5 +1,8 @@
 <body>
   <div class="container">
+    <% flash.each do |name, msg| %>
+      <div class="alert alert-info"><%= msg %></div>
+    <% end %>
     <div class="form-signin">
     <%= render "devise/shared/error_messages", resource: resource %>
 
