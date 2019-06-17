@@ -1,15 +1,8 @@
 require 'rails_helper'
 
-# let(:定義名){ 定義内容 }
-# visit **_path
-# fill_in '入力箇所ラベル', with: '入力内容'
-# click_button 'ボタンラベル'
-# expect(page).to have_content 'コンテンツ'
-# a = Factory.Bot.create(:user, name:'', email: '')
-# let(:login_user){ }Factory.Bot.create(:user, name:'', email: '') }
 
 describe 'ユーザートップ画面', type: :system do
-  let(:login_user){ Factory.Bot.create(:user, name:'test', email: 'test@mail.com', email: 'password') }
+  let(:login_user){ FactoryBot.create(:user, name:'test', email: 'test@mail.com', password: 'password') }
 
   context 'ログアウト時' do
     before do
@@ -42,8 +35,8 @@ describe 'ユーザートップ画面', type: :system do
   context 'ログイン時' do
     before do
       visit new_user_session_path
-      fill_in 'user_email', with: 'test@mail.com'
-      fill_in 'user_password', with: 'password'
+      fill_in 'user_email', with: login_user.email
+      fill_in 'user_password', with: login_user.password
       click_button 'ログイン'
       visit root_path
     end
