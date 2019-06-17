@@ -1,5 +1,7 @@
+<% flash.each do |name, msg| %>
+  <div class="alert alert-info"><%= msg %></div>
+<% end %>
 <h2 id="user_information">登録情報</h2>
-
 <p>ユーザー名：<%= @user.name%></p>
 <p>誕生日：<%= @user.birthday%></p>
 <p>性別：<%= @user.sex%></p>

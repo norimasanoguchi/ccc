@@ -1,5 +1,8 @@
- <h1 class="h2">検索</h1>
- <%= render 'search' %>
+<% flash.each do |name, msg| %>
+  <div class="alert alert-info"><%= msg %></div>
+<% end %>
+<h1 class="h2">検索</h1>
+<%= render 'search' %>
  <hr>
  <h2>人材一覧</h2>
  <div class="table-responsive">
