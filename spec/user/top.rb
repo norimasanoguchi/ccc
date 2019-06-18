@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 describe 'ユーザートップ画面', type: :system do
-  let(:login_user){ FactoryBot.create(:user, name:'test', email: 'test@mail.com', password: 'password') }
+  # let(:login_user){ FactoryBot.create(:user, name:'test', email: 'test@mail.com', password: 'password',visa_id: 1, prefecture_id:1) }
+  let(:login_user){ FactoryBot.create(:user, name:'test', email: 'test@mail.com') }
 
   context 'ログアウト時' do
     before do

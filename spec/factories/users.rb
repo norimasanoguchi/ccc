@@ -11,8 +11,10 @@ FactoryBot.define do
     jlpt { "no_certif" }
     management { "no" }
     chinese_skill { "native" }
-    visa_id { "1" }
-    prefecture_id { "1" }
-    image { "nil" }
+    visa
+    prefecture
+    confirmed_at { Time.now }
+    # association :visa, factory: :visa, id: "1"
+    # association :prefecture, factory: :prefecture, id: "1"
   end
 end

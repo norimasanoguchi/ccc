@@ -141,8 +141,8 @@
                   <%= f.text_field :user_id, value: @user_id, type: "hidden"  %>
                 <% end %>
                 <button class="msg_send_btn" type="button">
-                  <%= f.submit("送") %>
-                  #TODO:inputの上下paddingをいじればボタンが入るようになる。
+                  <%= f.submit("送", id: "messageSendButton") %>
+                  <!--#TODO:inputの上下paddingをいじればボタンが入るようになる。-->
 <!--                  <i class="fas fa-paper-plane" aria-hidden="true"></i>-->
 <!--                  <i class="fas fa-paper-plane"></i>-->
                 </button>
