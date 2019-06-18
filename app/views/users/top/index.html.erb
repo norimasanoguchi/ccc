@@ -15,7 +15,7 @@
           <%= link_to("マイページを見る", users_admin_index_path,class:"nav-link js-scroll-trigger") if user_signed_in? %>
         </li>
         <li class="nav-item">
-          <%= link_to("今すぐアカウント登録", new_user_registration_path,class:"nav-link js-scroll-trigger") unless user_signed_in? %>
+          <%= link_to("今すぐアカウント登録", new_user_registration_path,class:"nav-link js-scroll-trigger",id:'signInNow') unless user_signed_in? %>
         </li>
         <li class="nav-item">
           <%= link_to("ログインする", new_user_session_path,class:"nav-link js-scroll-trigger") unless user_signed_in? %>

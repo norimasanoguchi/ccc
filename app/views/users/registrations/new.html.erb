@@ -6,7 +6,7 @@
           <%= render "devise/shared/error_messages", resource: resource %>
           <h5 class="card-title text-center">会員登録</h5>
             <div class="form-group">
-              <%= f.text_field :name,id:"inputUserame",class: "form-control", placeholder: "名前" %>
+              <%= f.text_field :name,id:"inputUserName",class: "form-control", placeholder: "名前" %>
             </div>
 
             <div class="form-group">
@@ -14,9 +14,9 @@
             </div>
 
             <div class="form-group">
-                <%= f.collection_radio_buttons(:sex, User.sexes, :first, :first) do |r| %>
+                <%= f.collection_radio_buttons(:sex, User.sexes, :first, :first,class:"inputSex") do |r| %>
                   <div class="form-check form-check-inline">
-                  <%= r.label(class:"form-check-label"){ r.radio_button + r.text }  %>
+                  <%= r.label(class:"form-check-label",id:"input#{r.text}"){ r.radio_button + r.text }  %>
                   </div>
                 <% end %>
             </div>
@@ -51,7 +51,7 @@
             </div>
 
             <div class="form-group">
-              <%= f.email_field :email,class: "form-control", placeholder: "Email"  %>
+              <%= f.email_field :email,class: "form-control", placeholder: "Email",id:"inputEmail"  %>
             </div>
 
             <div class="form-group">

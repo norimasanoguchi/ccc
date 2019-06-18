@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.connection.execute("TRUNCATE TABLE users CASCADE;")
 Visa.connection.execute("TRUNCATE TABLE visas CASCADE;")
-visas = Visa.create([
+visas = Visa.create!([
                       {name: "技術・人文知識・国際業務"},
                       {name: "留学"},
                       {name: "家族滞在"},
@@ -34,7 +34,7 @@ visas = Visa.create([
                       {name: "ビザなし"}])
 
 Prefecture.connection.execute("TRUNCATE TABLE prefectures CASCADE;")
-prefectures = Prefecture.create([
+prefectures = Prefecture.create!([
                       {name: "東京"},
                       {name: "神奈川"},
                       {name: "埼玉"},
@@ -97,7 +97,7 @@ prefectures = Prefecture.create([
   prefecture_id = Faker::Number.within(1..50)
   visa_id = Faker::Number.within(1..24)
 
-  User.create(name: name,
+  User.create!(name: name,
                email: email,
                password: password,
                password_confirmation: password,

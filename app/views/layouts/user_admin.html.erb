@@ -36,7 +36,7 @@
         </h6>
         <ul class="nav flex-column">
           <li class="nav-item">
-            <%= link_to("登録情報の確認・編集", users_admin_path(@user.id),class:"nav-link") %>
+            <%= link_to("登録情報の確認・編集", users_admin_path(@user.id),class:"nav-link",id:"sidebarConfirmInfoLink") %>
           </li>
 
           <li class="nav-item">
@@ -52,10 +52,10 @@
         </h6>
         <ul class="nav flex-column mb-2">
           <li class="nav-item">
-            <%= link_to("ホーム", users_admin_index_path,class:"nav-link") if user_signed_in? %>
+            <%= link_to("ホーム", users_admin_index_path,class:"nav-link",id:"sidebarHomeLink") if user_signed_in? %>
           </li>
           <li class="nav-item">
-            <%= link_to('ログアウト', destroy_user_session_path, method: :delete,class:"nav-link") if user_signed_in? %>
+            <%= link_to('ログアウト', destroy_user_session_path, method: :delete,class:"nav-link",id:"sidebarLogoutLink") if user_signed_in? %>
           </li>
         </ul>
       </div>

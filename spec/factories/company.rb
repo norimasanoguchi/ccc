@@ -4,5 +4,7 @@ FactoryBot.define do
     contact_person { 'テスト太郎' }
     tel { '00000000000' }
     email { 'testcompany@test.co.jp' }
+    password { 'password' }
+    confirmed_at { Time.now }
   end
 end

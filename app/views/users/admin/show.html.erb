@@ -14,5 +14,5 @@
 <p>中国語スキル：<%= @user.chinese_skill_i18n%></p>
 <p><%= image_tag @user.image.url if @user.image.present? %></p>
 
-<%= link_to("登録情報を編集する", edit_user_registration_path) if user_signed_in? %>
+<%= link_to("登録情報を編集する", edit_user_registration_path, id:"editUserInfo") if user_signed_in? %>
 <%= link_to('メッセージを送る', conversations_path(company_id: current_company.id, user_id: @user.id), method: :post) if company_signed_in? %>

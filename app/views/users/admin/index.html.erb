@@ -16,7 +16,7 @@
         <tr>
           <td><%= conversations.updated_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
           <td><%= conversations.company.company_name %></td>
-          <td><%= link_to("メッセージ詳細",conversation_messages_path(conversations)) %></td>
+          <td><%= link_to("メッセージ詳細",conversation_messages_path(conversations),id:"messageDetailLink") %></td>
         </tr>
       <% end %>
     </tbody>
