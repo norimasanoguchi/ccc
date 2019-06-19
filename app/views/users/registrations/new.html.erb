@@ -33,17 +33,17 @@
 
             <div class="form-group">
               <%= f.label :edu_level  %>
-              <%= f.collection_select(:edu_level, User.edu_levels_i18n.invert, :first, :first, { include_blank: true }, class:"form-control")  %>
+              <%= f.collection_select(:edu_level, User.edu_levels_i18n.invert, :second, :first, { include_blank: true }, class:"form-control")  %>
             </div>
 
             <div class="form-group">
               <%= f.label :jlpt %>
-              <%= f.collection_select(:jlpt, User.jlpts_i18n.invert, :first, :first, { include_blank: true }, class:"form-control")  %>
+              <%= f.collection_select(:jlpt, User.jlpts_i18n.invert, :second, :first, { include_blank: true }, class:"form-control")  %>
             </div>
 
             <div class="form-group">
               <%= f.label :chinese_skill %>
-              <%= f.collection_select(:chinese_skill, User.chinese_skills_i18n.invert, :first, :first, { include_blank: true }, class:"form-control")  %>
+              <%= f.collection_select(:chinese_skill, User.chinese_skills_i18n.invert, :second, :first, { include_blank: true }, class:"form-control")  %>
             </div>
 
             <div class="form-group">
