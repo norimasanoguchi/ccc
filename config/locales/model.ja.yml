@@ -44,6 +44,7 @@ ja:
         high_school: "高校卒業"
         junior_high: "中学卒業"
         other: "その他"
+        prompt: "入力してください"
       jlpt:
         no_certif: "資格なし"
       chinese_skill:
