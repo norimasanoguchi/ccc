@@ -24,12 +24,12 @@
   <div class="row">
     <div class="col">
       <%= f.label :birthday_to_age_gteq,"歳以上" %>
-      <%= f.number_field :birthday_to_age_gteq,class: "form-control"  %>
+      <%= f.number_field :birthday_to_age_gteq,class: "form-control",min:1  %>
     </div>
     <p>～</p>
     <div class="col">
       <%= f.label :birthday_to_age_lteq,"歳以下" %>
-      <%= f.number_field :birthday_to_age_lteq,class: "form-control"  %>
+      <%= f.number_field :birthday_to_age_lteq,class: "form-control",min:1   %>
     </div>
   </div>
  <p></p>
