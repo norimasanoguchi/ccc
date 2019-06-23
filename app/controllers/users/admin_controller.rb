@@ -1,5 +1,7 @@
 class Users::AdminController < ApplicationController
   layout :select_layout
+  before_action :company_account_block
+  before_action :authenticate_user!
 
  def index
    authenticate_user! unless company_signed_in?

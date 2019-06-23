@@ -1,5 +1,6 @@
 class Companies::AdminController < ApplicationController
   before_action :authenticate_company!
+  before_action :user_account_block
   layout 'company_admin'
 
  def index

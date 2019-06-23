@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+   include Common_action
+  
    protected
 
     # def after_sign_in_path_for(resource_or_scope)

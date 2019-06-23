@@ -2,7 +2,8 @@
 
 class Users::SessionsController < Devise::SessionsController
   layout 'form'
-  # before_action :configure_sign_in_params, only: [:create]
+  before_action :configure_sign_in_params, only: [:create]
+  before_action :company_account_block
 
   # GET /resource/sign_in
   # def new
